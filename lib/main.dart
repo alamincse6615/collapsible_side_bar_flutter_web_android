@@ -34,7 +34,7 @@ class SidebarPage extends StatefulWidget {
 class _SidebarPageState extends State<SidebarPage> {
   late List<CollapsibleItem> _items;
   late String _headline;
-  AssetImage _avatarImg = AssetImage('assets/man.png');
+  NetworkImage _avatarImg = NetworkImage('https://alamincmt6615.github.io/alamin.me/images/img-feed/04.jpg');
 
   @override
   void initState() {
@@ -216,13 +216,13 @@ class _SidebarPageState extends State<SidebarPage> {
         items: _items,
         collapseOnBodyTap: false,
         avatarImg: _avatarImg,
-        title: 'John Smith',
+        title: 'Md Al Amin',
         onTitleTap: () {
           ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text('Yay! Flutter Collapsible Sidebar!')));
         },
         body: _body(size, context),
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.brown,
         selectedTextColor: Colors.limeAccent,
         textStyle: TextStyle(fontSize: 15, fontStyle: FontStyle.italic),
         titleStyle: TextStyle(
@@ -230,7 +230,7 @@ class _SidebarPageState extends State<SidebarPage> {
             fontStyle: FontStyle.italic,
             fontWeight: FontWeight.bold),
         toggleTitleStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-        sidebarBoxShadow: [
+        sidebarBoxShadow: const [
           BoxShadow(
             color: Colors.indigo,
             blurRadius: 20,
@@ -254,17 +254,11 @@ class _SidebarPageState extends State<SidebarPage> {
       width: double.infinity,
       color: Colors.blueGrey[50],
       child: Center(
-        child: Transform.rotate(
-          angle: math.pi / 2,
-          child: Transform.translate(
-            offset: Offset(-size.height * 0.3, -size.width * 0.23),
-            child: Text(
-              _headline,
-              style: Theme.of(context).textTheme.displayLarge,
-              overflow: TextOverflow.visible,
-              softWrap: false,
-            ),
-          ),
+        child: Text(
+          _headline,
+          style: Theme.of(context).textTheme.displayLarge,
+          overflow: TextOverflow.visible,
+          softWrap: false,
         ),
       ),
     );
